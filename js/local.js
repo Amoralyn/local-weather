@@ -37,6 +37,7 @@ var showWeather = function(param){
     var tempC = param.current_observation.temp_c + '' +unitLabelCelsius;
     var tempF = param.current_observation.temp_f + unitLabelFahrenheit;
     $('.tempC').click(function(){
+    	$(".temp").empty()
 		$(".temp").append(tempC);
 	
 	})
