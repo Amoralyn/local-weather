@@ -3,6 +3,7 @@ var City = prompt("What city are you?");
 var APIurl = "http://api.wunderground.com/api/ef965f0566aedf6d/conditions/geolookup/q/" + Country + "/" + City +".json";
 var unitLabelCelsius = "C";
 var unitLabelFahrenheit = "F";
+
 var getWeather = function(){
 	$.ajax({
 		type: 'GET',
@@ -22,7 +23,7 @@ var getWeather = function(){
 // Get Location i.e country and city
 var showLocation = function(param){
 	$(".location")
-	.append(param.location.country_name)
+	.append(param.location.country_name + ",") 
 	.append(param.location.city);
 }
 
@@ -32,26 +33,30 @@ var showWeather = function(param){
 	.append(param.current_observation.weather)
 	$('#icon')
         .append("<img src='http://icons.wxug.com/i/c/a/" + param.current_observation.icon+".gif'>")
+        console.log(param.current_observation.icon);
+    var tempC = param.current_observation.temp_c + '' +unitLabelCelsius;
+    var tempF = param.current_observation.temp_f + unitLabelFahrenheit;
+    $('.tempC').click(function(){
+		$(".temp").append(tempC);
+	
+	})
+    $('.tempF').click(function(){
+    	$( ".temp").empty()
+		$(".temp").append(tempF);
+	})
+
  }
 
 
- $('.tempC').click(function(){
-	$(".temp").append(tempInCelsius(param));
-	console.log(tempInCelsius);
-	})
-     $('.tempF').click(function(){
-	$(".temp").append(tempInFahrenheit(param));
-	console.log(tempInFahrenheit);
-	})
 
 
 
-var tempInCelsius = function(param){
- 	tempC = param.current_observation.temp_c + unitLabelCelsius;
-} 
+// var tempInCelsius = function(param){
+//  	tempC = param.current_observation.temp_c + unitLabelCelsius;
+// } 
 
-var tempInFahrenheit = function(param){
-	tempF = param.current_observation.temp_f + unitLabelFahrenheit;
-}
+// var tempInFahrenheit = function(param){
+// 	tempF = param.current_observation.temp_f + unitLabelFahrenheit;
+// }
 
 $(document).ready(getWeather);
