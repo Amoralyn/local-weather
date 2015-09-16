@@ -32,23 +32,25 @@ var showWeather = function(param){
 	.append(param.current_observation.weather)
 	$('#icon')
         .append("<img src='http://icons.wxug.com/i/c/a/" + param.current_observation.icon+".gif'>")
-    $('.tempC').click(function(){
-	tempInCelsius();
+ }
+
+
+ $('.tempC').click(function(){
+	$(".temp").append(tempInCelsius(param));
+	console.log(tempInCelsius);
 	})
      $('.tempF').click(function(){
-	tempInFahrenheit();
+	$(".temp").append(tempInFahrenheit(param));
+	console.log(tempInFahrenheit);
 	})
-	
-
-}
 
 
 
-var tempInCelsius = function(){
+var tempInCelsius = function(param){
  	tempC = param.current_observation.temp_c + unitLabelCelsius;
 } 
 
-var tempInFahrenheit = function(){
+var tempInFahrenheit = function(param){
 	tempF = param.current_observation.temp_f + unitLabelFahrenheit;
 }
 
