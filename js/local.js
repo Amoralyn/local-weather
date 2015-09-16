@@ -1,7 +1,8 @@
 var Country = prompt("What country are you?");
 var City = prompt("What city are you?");
 var APIurl = "http://api.wunderground.com/api/ef965f0566aedf6d/conditions/geolookup/q/" + Country + "/" + City +".json";
-
+var unitLabelCelsius = "C";
+var unitLabelFahrenheit = "F";
 var getWeather = function(){
 	$.ajax({
 		type: 'GET',
@@ -29,19 +30,26 @@ var showLocation = function(param){
 var showWeather = function(param){
 	$(".condition")
 	.append(param.current_observation.weather)
-	 $('#icon')
-        .append("<img src='http://icons.wxug.com/i/c/a/" + param.current_observation.icon+".gif'>");
-	$(".temp")
-	.append(param.current_observation.temp_c);
+	$('#icon')
+        .append("<img src='http://icons.wxug.com/i/c/a/" + param.current_observation.icon+".gif'>")
+    $('.tempC').click(function(){
+	tempInCelsius();
+	})
+     $('.tempF').click(function(){
+	tempInFahrenheit();
+	})
 	
-
-
 
 }
 
 
 
+var tempInCelsius = function(){
+ 	tempC = param.current_observation.temp_c + unitLabelCelsius;
+} 
 
-
+var tempInFahrenheit = function(){
+	tempF = param.current_observation.temp_f + unitLabelFahrenheit;
+}
 
 $(document).ready(getWeather);

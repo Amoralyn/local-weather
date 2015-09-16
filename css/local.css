@@ -15,10 +15,10 @@ body {
   font-size: 1em;
 }
 
-#title{
+.title{
   font-size: 1.8em;
   padding: 1%;
-  color: #BFAD61;
+  color: #B8B8B8;
   text-shadow: 0 0 0.3em #000;
 }
 
