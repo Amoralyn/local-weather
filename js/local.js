@@ -1,24 +1,32 @@
-var Country = prompt("What country are you?");
-var City = prompt("What city are you?");
-var APIurl = "http://api.wunderground.com/api/ef965f0566aedf6d/conditions/geolookup/q/" + Country + "/" + City +".json";
+var APIurl = "http://api.wunderground.com/api/ef965f0566aedf6d/conditions/geolookup/q/";
 var unitLabelCelsius = "C";
 var unitLabelFahrenheit = "F";
 
+$(document).ready(getWeather);
 var getWeather = function(){
-	$.ajax({
-		type: 'GET',
-		url: APIurl,
-		success: function(response){
-			showLocation(response);
-			showWeather(response);
-			console.log(response);
+	 $('#submit').click (function(){
+    var country =$('#country').val();
+    var city =$('#city').val();
+    console.log( country, city);
+    var forecast = APIurl + country + '/' + city + '.json';
+    console.log(forecast);
 
-		},
-		error: function(err){
-			console.log("An error occured:", err);
-		}
+		$.ajax({
+			type: 'GET',
+			url: forecast,
+			success: function(response){
+				showLocation(response);
+				showWeather(response);
+				console.log(response);
+
+			},
+			error: function(err){
+				console.log("An error occured:", err);
+			}
+		})
 	})
 }
+
 
 // Get Location i.e country and city
 var showLocation = function(param){
@@ -60,4 +68,3 @@ var showWeather = function(param){
 // 	tempF = param.current_observation.temp_f + unitLabelFahrenheit;
 // }
 
-$(document).ready(getWeather);
