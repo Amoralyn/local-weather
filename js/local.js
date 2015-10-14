@@ -2,11 +2,15 @@ var APIurl = "http://api.wunderground.com/api/ef965f0566aedf6d/conditions/geoloo
 var unitLabelCelsius = "C";
 var unitLabelFahrenheit = "F";
 
-$(document).ready(getWeather);
+
+console.log("I'm working")
 var getWeather = function(){
 	 $('#submit').click (function(){
     var country =$('#country').val();
+    console.log(country);
     var city =$('#city').val();
+    console.log(city);
+
     console.log( country, city);
     var forecast = APIurl + country + '/' + city + '.json';
     console.log(forecast);
@@ -40,7 +44,7 @@ var showWeather = function(param){
 	$(".condition")
 	.append(param.current_observation.weather)
 	$('#icon')
-        .append("<img src='http://icons.wxug.com/i/c/a/" + param.current_observation.icon+".gif'>")
+        .append("http://icons.wxug.com/i/c/a/ICON.gif")
         console.log(param.current_observation.icon);
     var tempC = param.current_observation.temp_c + '' +unitLabelCelsius;
     var tempF = param.current_observation.temp_f + unitLabelFahrenheit;
@@ -68,3 +72,4 @@ var showWeather = function(param){
 // 	tempF = param.current_observation.temp_f + unitLabelFahrenheit;
 // }
 
+ $(document).ready(getWeather);
