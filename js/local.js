@@ -1,5 +1,3 @@
-var Country = prompt("What country are you?");
-var City = prompt("What city are you?");
 var APIurl = "http://api.wunderground.com/api/ef965f0566aedf6d/conditions/geolookup/q/" + Country + "/" + City +".json";
 var unitLabelCelsius = "C";
 var unitLabelFahrenheit = "F";
