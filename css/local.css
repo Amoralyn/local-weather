@@ -16,7 +16,6 @@ body {
   background: url("http://www.firasarab.com/downloads/wp03c1989bee1020e074.jpg") no-repeat;
   background-size: cover;
 }
-}
 
 .title{
   font-size: 1.8em;
@@ -86,9 +85,9 @@ body {
   padding-top: 3%;
   color: #ffffff;
   text-shadow: 0 0 0.2em #333;
-}*/
+}
 
-/*button{
+button{
   margin-top: 3%;
   font-size: 1.15em;
   border: 0.1em solid #ffffff;
@@ -98,7 +97,6 @@ body {
   padding: 0.5%;
 }
 */
-
-h3{
+.ask{
   color: #ffffff;
 }

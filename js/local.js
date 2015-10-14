@@ -3,18 +3,14 @@ var unitLabelCelsius = "C";
 var unitLabelFahrenheit = "F";
 
 
-console.log("I'm working")
+
 var getWeather = function(){
 	 $('#submit').click (function(){
     var country =$('#country').val();
-    console.log(country);
     var city =$('#city').val();
-    console.log(city);
-
-    console.log( country, city);
     var forecast = APIurl + country + '/' + city + '.json';
     console.log(forecast);
-
+// API call
 		$.ajax({
 			type: 'GET',
 			url: forecast,
@@ -60,16 +56,5 @@ var showWeather = function(param){
 
  }
 
-
-
-
-
-// var tempInCelsius = function(param){
-//  	tempC = param.current_observation.temp_c + unitLabelCelsius;
-// } 
-
-// var tempInFahrenheit = function(param){
-// 	tempF = param.current_observation.temp_f + unitLabelFahrenheit;
-// }
 
  $(document).ready(getWeather);
