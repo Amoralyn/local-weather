@@ -13,6 +13,8 @@ body {
   font-family: 'Lato', sans-serif;
   text-align: center;
   font-size: 1em;
+  background: url("http://www.firasarab.com/downloads/wp03c1989bee1020e074.jpg") no-repeat;
+  background-size: cover;
 }
 
 .title{
@@ -95,3 +97,6 @@ button{
   padding: 0.5%;
 }
 */
+.ask{
+  color: #ffffff;
+}
